@@ -2,7 +2,7 @@ import React from 'react';
 import moxios from 'moxios';
 import { cleanup, render, fireEvent } from '@testing-library/react';
 import TestProviders from '../helpers/TestProviders';
-import Index from './index';
+import Index from '../pages/index';
 
 const setup = () => {
   const props = {};
