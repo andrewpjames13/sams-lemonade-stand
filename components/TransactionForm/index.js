@@ -13,21 +13,31 @@ const ButtonStyled = styled(Button)`
   }
 `;
 
+const FieldStyled = styled(Field)`
+  width: 100%;
+  border-radius: ${({ theme }) => theme.borderRadius};
+  border: none;
+  font-size: 1rem;
+  padding: ${({ theme }) => theme.spacing(2)};
+`;
+
 const TransactionForm = ({ onSubmit }) => (
   <div className="row center-xs">
     <Form
       onSubmit={onSubmit}
-      render={({ handleSubmit, valid, submitting }) => (
+      render={({ handleSubmit, hasValidationErrors, submitting }) => (
         <form className="col-xs-12 col-md-6" onSubmit={handleSubmit}>
-          <Field
+          <FieldStyled
+            data-testid="transaction-form-input"
             name="address"
-            component={Input}
+            component="input"
             placeholder="Enter BTC Address"
             validate={value => (value ? undefined : 'Required')}
           />
           <ButtonStyled
+            data-testid="transaction-form-button"
             type="submit"
-            disabled={!valid || submitting}
+            disabled={hasValidationErrors || submitting}
           >
             Submit
           </ButtonStyled>

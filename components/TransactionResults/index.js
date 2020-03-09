@@ -37,7 +37,7 @@ const TransactionResults = ({ currentBtcPrice, addrData }) => (
               y: { stiffness: 1000, velocity: -100 }
             }}
           >
-            <Transaction className="col-xs-12">
+            <Transaction data-testid={`transaction-result-${tx.hash}`} className="col-xs-12">
               <h5 style={{ wordBreak: 'break-all' }}>TXID: {tx.hash}</h5>
               <div className="row">
                 <DivStyled>
