@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import TransactionForm from 'components/TransactionForm';
 
 const Container = styled.div`
   ${({ theme }) => `
@@ -31,6 +32,7 @@ const Index = () => {
         <Title className="col-xs-12">Sam's Lemonade Stand</Title>
         <h5 className="col-xs-12">When life gives you Bitcoin, make lemonade!</h5>
       </div>
+      <TransactionForm />
     </Container>
   );
 }
