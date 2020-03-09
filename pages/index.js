@@ -37,7 +37,7 @@ const Index = () => {
   }, []);
 
   const onSubmit = (vals) => (
-    axios.get(`https://blockchain.info/rawaddr/${vals.address}`)
+    axios.get(`https://blockchain.info/rawaddr/${vals.address}?cors=true`)
       .then(res => setAddrData(res.data))
       .catch(res => setAddrData(null))
   )

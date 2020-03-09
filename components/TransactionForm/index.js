@@ -22,7 +22,7 @@ const TransactionForm = ({ onSubmit }) => (
           <Field
             name="address"
             component={Input}
-            placeholder="BTC Address"
+            placeholder="Enter BTC Address"
             validate={value => (value ? undefined : 'Required')}
           />
           <ButtonStyled
