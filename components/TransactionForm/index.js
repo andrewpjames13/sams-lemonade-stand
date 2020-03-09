@@ -39,7 +39,7 @@ const TransactionForm = ({ onSubmit }) => (
 
 export default TransactionForm;
 
-TransactionForm.propTyopes = {
+TransactionForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 }
 
