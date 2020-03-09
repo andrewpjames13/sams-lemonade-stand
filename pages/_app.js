@@ -13,6 +13,7 @@ const theme = {
   bold: 900,
   light: 300,
   spacing: (multiplier) => `${8 * multiplier}px`,
+  borderRadius: '8px',
 }
 
 export default class MyApp extends App {
