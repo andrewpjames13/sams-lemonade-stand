@@ -2,6 +2,7 @@ import App from 'next/app'
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import { Reset } from 'styled-reset';
+import Head from 'next/head';
 import GlobalStyles from '../styles/GlobalStyles';
 
 const theme = {
@@ -9,6 +10,9 @@ const theme = {
     primary: '#fadd2d',
     secondary: '#1e853e',
   },
+  bold: 900,
+  light: 300,
+  spacing: (multiplier) => `${8 * multiplier}px`,
 }
 
 export default class MyApp extends App {
