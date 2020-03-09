@@ -7,8 +7,8 @@ import GlobalStyles from 'styles/GlobalStyles';
 
 const theme = {
   colors: {
-    primary: '#fadd2d',
-    secondary: '#1e853e',
+    primary: '#d5c73f',
+    secondary: '#002300',
   },
   bold: 900,
   light: 300,

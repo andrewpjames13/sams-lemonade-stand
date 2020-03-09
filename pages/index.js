@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import axios from 'axios';
 import TransactionForm from 'components/TransactionForm';
+import TransactionResults from 'components/TransactionResults';
 
 const Container = styled.div`
   ${({ theme }) => `
@@ -27,11 +28,19 @@ const Title = styled.h1`
 
 const Index = () => {
   const [currentBtcPrice, setCurrentBtcPrice] = useState();
+  const [addrData, setAddrData] = useState();
+
   useEffect(() => {
     axios.get('https://blockchain.info/ticker')
       .then(res => setCurrentBtcPrice(res.data.USD.last))
       .catch(res => setCurrentBtcPrice(null))
   }, []);
+
+  const onSubmit = (vals) => (
+    axios.get(`https://blockchain.info/rawaddr/${vals.address}`)
+      .then(res => setAddrData(res.data))
+      .catch(res => setAddrData(null))
+  )
 
   return (
     <Container className="contianer-fluid">
@@ -41,7 +50,11 @@ const Index = () => {
         <h5 className="col-xs-12">When life gives you Bitcoin, make lemonade!</h5>
         {currentBtcPrice && <p className="col-xs-12">Current btc price ${currentBtcPrice}</p>}
       </div>
-      <TransactionForm />
+      <TransactionForm onSubmit={onSubmit} />
+      <TransactionResults
+        currentBtcPrice={currentBtcPrice}
+        addrData={addrData}
+      />
     </Container>
   );
 }
