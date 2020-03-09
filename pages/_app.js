@@ -1,6 +1,6 @@
-import App from 'next/app'
-import React from 'react'
-import { ThemeProvider } from 'styled-components'
+import App from 'next/app';
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
 import { Reset } from 'styled-reset';
 import Head from 'next/head';
 import GlobalStyles from 'styles/GlobalStyles';
