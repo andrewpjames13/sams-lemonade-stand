@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
+const RESULT_MULTIPLIER = .00000001;
+
 const Transaction = styled.div`
   ${({ theme }) => `
     background-color: ${theme.colors.primary};
@@ -22,11 +24,13 @@ const DivStyled = styled.div`
   `}
 `;
 
-const TransactionResults = ({ currentBtcPrice, addrData }) => (
-  <>
-    <h5>Transactions</h5>
-      {addrData ? (
-        addrData.txs.map((tx, i) => (
+const TransactionResults = ({ currentBtcPrice, addrData }) => {
+  const results = () => {
+    const recievedTx = addrData && addrData.txs.filter((tx) => Math.sign(tx.result) === 1)
+
+    return (
+      <>
+        {recievedTx.map((tx, i) => (
           <motion.div
             key={tx.hash}
             initial={{ opacity: 0, y: 75 }}
@@ -42,23 +46,29 @@ const TransactionResults = ({ currentBtcPrice, addrData }) => (
               <div className="row">
                 <DivStyled>
                   <h5>Amount Recieved BTC</h5>
-                  <h4>{tx.result * .00000001} BTC</h4>
+                  <h4>{tx.result * RESULT_MULTIPLIER} BTC</h4>
                 </DivStyled>
                 {currentBtcPrice && (
                   <DivStyled>
                     <h5>Amount Recieved USD</h5>
-                    <h4>${currentBtcPrice * tx.result * .00000001}</h4>
+                    <h4>${currentBtcPrice * tx.result * RESULT_MULTIPLIER}</h4>
                   </DivStyled>
                 )}
               </div>
             </Transaction>
           </motion.div>
-        ))
-      ) : (
-        <p>No transactions</p>
-      )}
-  </>
-);
+        ))}
+      </>
+    );
+  }
+
+  return (
+    <>
+      <h5>Transactions</h5>
+        {addrData ? (results()) : (<p>No transactions</p>)}
+    </>
+  );
+}
 
 export default TransactionResults;
 
