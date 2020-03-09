@@ -15,11 +15,16 @@ export default class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props
     return (
-      <ThemeProvider theme={theme}>
-        <Reset />
-        <GlobalStyles />
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <>
+        <Head>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" />
+        </Head>
+        <ThemeProvider theme={theme}>
+          <Reset />
+          <GlobalStyles />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </>
     )
   }
 }
