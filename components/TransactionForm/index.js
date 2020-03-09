@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Field } from 'react-final-form';
-import Input from 'atoms/Input';
-import Button from 'atoms/Button';
+import Input from '../../atoms/Input';
+import Button from '../../atoms/Button';
 import styled from 'styled-components';
 
 const ButtonStyled = styled(Button)`

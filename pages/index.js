@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import axios from 'axios';
-import TransactionForm from 'components/TransactionForm';
-import TransactionResults from 'components/TransactionResults';
+import TransactionForm from '../components/TransactionForm';
+import TransactionResults from '../components/TransactionResults';
 
 const Container = styled.div`
   ${({ theme }) => `

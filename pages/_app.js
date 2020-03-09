@@ -4,17 +4,7 @@ import { ThemeProvider } from 'styled-components'
 import { Reset } from 'styled-reset';
 import Head from 'next/head';
 import GlobalStyles from 'styles/GlobalStyles';
-
-const theme = {
-  colors: {
-    primary: '#d5c73f',
-    secondary: '#002300',
-  },
-  bold: 900,
-  light: 300,
-  spacing: (multiplier) => `${8 * multiplier}px`,
-  borderRadius: '8px',
-}
+import theme from '../constants/theme';
 
 export default class MyApp extends App {
   render() {
