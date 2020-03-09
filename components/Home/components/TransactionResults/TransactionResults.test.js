@@ -1,7 +1,7 @@
 import React from 'react';
 import moxios from 'moxios';
 import { cleanup, render, fireEvent } from '@testing-library/react';
-import TestProviders from '../../helpers/TestProviders';
+import TestProviders from '../../../../helpers/TestProviders';
 import TransactionResults from './index';
 
 const setup = () => {

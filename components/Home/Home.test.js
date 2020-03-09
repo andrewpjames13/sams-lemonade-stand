@@ -1,21 +1,21 @@
 import React from 'react';
 import moxios from 'moxios';
 import { cleanup, render, fireEvent } from '@testing-library/react';
-import TestProviders from '../helpers/TestProviders';
-import Index from '../pages/index';
+import TestProviders from '../../helpers/TestProviders';
+import Home from './index';
 
 const setup = () => {
   const props = {};
   const comp = render((
     <TestProviders>
-      <Index {...props} />
+      <Home {...props} />
     </TestProviders>
   ));
 
   return { ...comp, props };
 };
 
-describe('<Index />', () => {
+describe('<Home />', () => {
   beforeEach(moxios.install);
 
   afterEach(() => {
